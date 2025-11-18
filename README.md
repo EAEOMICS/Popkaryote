@@ -68,3 +68,5 @@ snakemake PHASE_7_Pangenome --cores 10 --sdm conda \
   assemblies='{ASSEMBLIES_DIRECTORY_FULL_PATH}'
 
 ```
+
+POPKARYOTE is a pipeline developed entirely by the EGG group of the Universitat Autonoma de Barcelona, all rights reserved" +"\n"+"https://github.com/EAEOMICS
