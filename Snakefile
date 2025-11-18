@@ -387,7 +387,7 @@ rule PHASE_7_Pangenome:
   shell:
     """
     mkdir -p {output.o2}
-    panaroo -i {input.i1}/*/*.gff -o {output.o1} --mode strict -a core --core_threshold 0.95 -t {threads}
+    panaroo -i {input.i1}/*/*.gff -o {output.o1} --clean-mode strict -a core --core_threshold 0.95 -t {threads}
     panaroo-spydrpick -i {output.o1}/gene_presence_absence.Rtab -o {output.o2} --tree {input.i2}
     """
 rule PHASE_8_PhaME:
@@ -475,4 +475,5 @@ rule PHASE_10_SNPEff:
     echo "SNPEff_db.genome : SNPEff" >> ./.snakemake/conda/*/share/snpeff-5.3.0a-0/data/snpEff.config 
     java -Xmx1G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar build -genbank -v SNPEff_db
     java -Xmx40G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar -v -stats {output.o1}/snpEff.html SNPEff_db {input.i2} > {output.o1}/variants.ann.vcf
+
     """
