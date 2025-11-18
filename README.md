@@ -41,18 +41,18 @@ snakemake --cores {NUM_OF_CORES} --sdm conda \
 
 ## 📊 Pipeline Phases
 
-| Phase | Name | Description |
-|-------|------|-------------|
-| **PHASE_1_Automatic_population_inference** | Automatic Population Inference (FASTA/FASTQ) | Inference of populations based on FASTA/FASTQ files provided by the user |
-| **PHASE_1_Automatic_population_inference_with_provided_VCF** | Automatic Population Inference (VCF) | Inference of populations based on VCF file provided by the user |
-| **PHASE_2_Global_statistics** | Global Statistics | Inference of nucleotide diversity, Watterson’s Theta, Tajima’s D, Linkage Disequilibrium, Maximum Likelihood Tree, Recombination detection, Ancestral Reconstruction |
-| **PHASE_3_Population_specific_statistics** | Population-Specific Statistics | Specific population statistics for every inferred population (nucleotide diversity, Watterson’s Theta, Tajima’s D, Linkage Disequilibrium) |
-| **PHASE_4_Pairwise_FST_comparisons_using_Hudson_method** | Pairwise FST Comparisons | FST calculation for every population using Hudson’s method |
-| **PHASE_5_Plot_population_comparisons** | Plot Population Comparisons | Generation of plots for comparisons of population statistics results |
-| **PHASE_6_Annotation** | Genome Annotation | Annotation of all the provided genomes |
-| **PHASE_7_Pangenome** | Pangenome Estimation | Estimation of the pangenome |
-| **PHASE_8_PhaME** | PhaME Analysis | Execution of PhaME module |
-| **PHASE_9_AMRfinder** | AMRfinder Analysis | Inference of Antibiotic Resistance Genes (ARGs) and Virulence Factors (VFs) |
-| **PHASE_10_SNPEff** | SNP Effect Annotation | Annotation of the effects of SNPs in the genes |
+| Phase | Description |
+|-------|-------------|
+| **PHASE_1_Automatic_population_inference** | Inference of populations based on FASTA/FASTQ files provided by the user |
+| **PHASE_1_Automatic_population_inference_with_provided_VCF** | Inference of populations based on VCF file provided by the user |
+| **PHASE_2_Global_statistics** | Inference of nucleotide diversity, Watterson’s Theta, Tajima’s D, Linkage Disequilibrium, Maximum Likelihood Tree, Recombination detection, Ancestral Reconstruction |
+| **PHASE_3_Population_specific_statistics** | Specific population statistics for every inferred population (nucleotide diversity, Watterson’s Theta, Tajima’s D, Linkage Disequilibrium) |
+| **PHASE_4_Pairwise_FST_comparisons_using_Hudson_method** | FST calculation for every population using Hudson’s method |
+| **PHASE_5_Plot_population_comparisons** | Generation of plots for comparisons of population statistics results |
+| **PHASE_6_Annotation** | Annotation of all the provided genomes |
+| **PHASE_7_Pangenome** | Estimation of the pangenome |
+| **PHASE_8_PhaME** | Execution of PhaME module |
+| **PHASE_9_AMRfinder** | Inference of Antibiotic Resistance Genes (ARGs) and Virulence Factors (VFs) |
+| **PHASE_10_SNPEff** | Annotation of the effects of SNPs in the genes |
 
 ---
