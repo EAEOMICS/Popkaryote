@@ -34,7 +34,8 @@ snakemake --cores {NUM_OF_CORES} --sdm conda \
           step=100 \
           min_samples_per_pop=30 \
           threads={NUM_OF_CORES} \
-          reference='{REF_GENOME_FULL_PATH}'
+          reference='{REF_GENOME_FULL_PATH}' \
+          sequence_file_location='{SEQUENCE_DIRECTORY_FULL_PATH}'
 ```
 
 ---
@@ -56,3 +57,12 @@ snakemake --cores {NUM_OF_CORES} --sdm conda \
 | **PHASE_10_SNPEff** | Annotation of the effects of SNPs in the genes |
 
 ---
+
+```bash
+snakemake PHASE_7_Pangenome --cores 10 --sdm conda \
+  --config output='{OUTPUT_DIR}' step=100 min_samples_per_pop=2 \
+  threads={NUM_OF_CORES} reference='{REF_GENOME_FULL_PATH}' \
+  sequence_type='fasta' sequence_file_location='{SEQUENCE_DIRECTORY_FULL_PATH}'\
+  assemblies='{ASSEMBLIES_DIRECTORY_FULL_PATH}'
+
+```
