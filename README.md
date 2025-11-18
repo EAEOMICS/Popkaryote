@@ -58,6 +58,8 @@ snakemake --cores {NUM_OF_CORES} --sdm conda \
 
 ---
 
+## Usage Example for computing Pangenome
+
 ```bash
 snakemake PHASE_7_Pangenome --cores 10 --sdm conda \
   --config output='{OUTPUT_DIR}' step=100 min_samples_per_pop=2 \
