@@ -1,0 +1,60 @@
+#Popkaryote a Pipeline for analyzing genetic diversity in bacteria
+
+#Path to input VCF file
+vcf:
+  '' 
+
+#Directory to save results
+output:
+  ''
+
+#Maximum number of clusters to test (default=8)
+max_clusters:
+  8
+
+#Window size for sliding-window statistics (default=10000)
+window:
+  10000
+
+#The distance between start positions of windows. If not given, defaults to the window size is non-overlapping windows (default=None)
+step:
+  None
+
+#Minimum number of samples per population to compute statistics (default=3)
+min_samples_per_pop:
+  3
+
+#Amount of threads for running Snippy (default=4)
+threads:
+  4 
+
+#a reference genome in FASTA or GENBANK format (can be in multiple contigs)
+reference:
+  ''
+
+#sequence file type to run snippy fastq-paired-end (fastq) or fastq-single-end (fastq-single) or fasta(fasta) (default=fastq)
+sequence_type:
+  'fastq'
+
+#sequence file location to run the VCF analaysis
+sequence_file_location:
+  ''
+
+#tsv file codifing sample name in the first column and decimal sampling date in the second
+dates_file:
+  ''
+
+#for unknown sampling month (default=True)
+unknown_month:
+  True
+
+#assembly file location to be annotated
+assemblies:
+  ''
+#type of organisms (0 = Bacteria ; 1 =Virus) default=0
+type_organism:
+  0
+  
+#gbff annotation file of the refernce genome
+gbff:
+  ''
