@@ -279,7 +279,7 @@ rule PHASE_2_Global_statistics:
       window_size={WINDOW_SIZE},\
       step={STEP},\
       threads={threads},\
-      dates={DF},\
+      dates='{DF}',\
       month={UM},\
       reference='{input.i1}')"
     """
@@ -477,3 +477,4 @@ rule PHASE_10_SNPEff:
     java -Xmx40G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar -v -stats {output.o1}/snpEff.html SNPEff_db {input.i2} > {output.o1}/variants.ann.vcf
 
     """
+
