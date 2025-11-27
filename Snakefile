@@ -452,6 +452,7 @@ rule PHASE_9_AMRfinder:
       --threads {threads} \
       --name $basename \
       -o {output.o1}/"$basename".tsv
+    done
     """
 
 rule PHASE_10_SNPEff:
@@ -477,4 +478,5 @@ rule PHASE_10_SNPEff:
     java -Xmx40G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar -v -stats {output.o1}/snpEff.html SNPEff_db {input.i2} > {output.o1}/variants.ann.vcf
 
     """
+
 
