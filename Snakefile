@@ -368,7 +368,7 @@ rule PHASE_6_Annotation:
     awk '/^>/{{print ">contig_" ++i; next}}{{print}}' "$file" > "$cleaned"  
     prokka --outdir {output.o1}/"$basename" --prefix "$basename" "$cleaned"
     done
-    REF=$(find {OUTPUT_DIR} -type f -name "ref.fa" | head -n 1)
+    REF=$(find {OUTPUT_DIR} -type f -name "ref.fa" -print -quit)
     prokka --outdir {output.o1}/Reference --prefix "Reference"  "$REF"
     """
 
@@ -478,6 +478,7 @@ rule PHASE_10_SNPEff:
     java -Xmx40G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar -v -stats {output.o1}/snpEff.html SNPEff_db {input.i2} > {output.o1}/variants.ann.vcf
 
     """
+
 
 
 
