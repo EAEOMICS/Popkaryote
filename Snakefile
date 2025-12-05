@@ -392,43 +392,51 @@ rule PHASE_7_Pangenome:
     """
 rule PHASE_8_PhaME:
   input:
-    i1=f"{OUTPUT_DIR}/annotation",
-    ref=config['reference']
+    i1 = f"{OUTPUT_DIR}/annotation",
+    ref = config['reference']
   output:
-    o1=directory(f"{OUTPUT_DIR}/PhaME"),
-    o2=directory(f"{OUTPUT_DIR}/PhaME/files"),
-    phame=f"{OUTPUT_DIR}/PhaME/phame.ctl"
+    o1 = directory(f"{OUTPUT_DIR}/PhaME"),
+    o2 = directory(f"{OUTPUT_DIR}/PhaME/files"),
+    phame = f"{OUTPUT_DIR}/PhaME/phame.ctl"
   conda:
     "envs/annotation.yml"
   threads: config['threads']
+  params:
+    fasta_source = FASTA,
+    code_type = TYPE
   log:
     f"{OUTPUT_DIR}/log/PHASE_8_PhaME.log"
   shell:
     """
     mkdir -p {output.o2}
-    cp -r {input.i1}/*/*.gff {output.o2}
-    cp -r {FASTA}/* {output.o2}
-    cp -r {input.ref} {output.o2}
+    cp {input.i1}/*/*.cleaned.fasta {output.o2} 2>/dev/null || true
+    
+    if [ -d "{params.fasta_source}" ]; then
+      cp {params.fasta_source}/* {output.o2}
+    fi
+    cp {input.ref} {output.o2}
+    REF_NAME=$(basename "{input.ref}")
     cat > {output.phame} <<EOF
-refdir = {output.o2}
-workdir = {output.o1}
-reference = 1
-reffile = {input.ref}
-project = Phame_alignment
-cdsSNPS = 1
-buildSNPdb = 1
-FirstTime = 1
-data = 3
-reads = 2
-tree = 2
-bootstrap = 1
-N = 10000
-PosSelect = 3
-code = {TYPE}
-clean = 1
-threads = {threads}
-cutoff = 0.1
-EOF
+    refdir = {output.o2}
+    workdir = {output.o1}
+    reference = 1
+    reffile = $REF_NAME
+    project = Phame_alignment
+    cdsSNPS = 1
+    buildSNPdb = 1
+    FirstTime = 1
+    data = 3
+    reads = 2
+    tree = 2
+    bootstrap = 1
+    N = 10000
+    PosSelect = 3
+    code = {params.code_type}
+    clean = 1
+    threads = {threads}
+    cutoff = 0.1
+    EOF
+    
     phame {output.phame}
     """
 rule PHASE_9_AMRfinder:
@@ -478,6 +486,7 @@ rule PHASE_10_SNPEff:
     java -Xmx40G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar -v -stats {output.o1}/snpEff.html SNPEff_db {input.i2} > {output.o1}/variants.ann.vcf
 
     """
+
 
 
 
