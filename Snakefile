@@ -154,7 +154,7 @@ rule vcf_from_sequences:
     python -c "from utils.vcf_maker import vcf_maker; \
       vcf_maker(fastq_location='{input.seq}', output_dir='{OUTPUT_DIR}', \
       reference='{input.ref}', threads={threads}, \
-      file_type='config[sequence_type]')"
+      file_type='{config[sequence_type]}')"
     cp "$(find '{OUTPUT_DIR}' -type f -name 'ref.fa' | head -n1)" '{output.ref}'
     cp "$(find '{OUTPUT_DIR}' -type f -name 'ref.fa.fai' | head -n1)" '{output.fai}'
     """
@@ -486,6 +486,7 @@ rule PHASE_10_SNPEff:
     java -Xmx40G -jar ./.snakemake/conda/*/share/snpeff-5.3.0a-0/snpEff.jar -v -stats {output.o1}/snpEff.html SNPEff_db {input.i2} > {output.o1}/variants.ann.vcf
 
     """
+
 
 
 
