@@ -22,7 +22,7 @@
 | **dates_file** | TSV file with sample name (column 1) and decimal sampling date (column 2) |
 | **unknown_month** | Use default for unknown sampling month *(default = True)* |
 | **assemblies** | Location of assembly files to be annotated |
-| **type_organism** | Type of organism:<br>• `0` = Bacteria<br>• `1` = Virus *(default = 0)* |
+| **type_organism** | Type of organism:<br>• `0` = Bacteria *(default = 0)* <br>• `1` = Virus |
 
 ---
 
