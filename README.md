@@ -17,7 +17,7 @@
 | **threads** | Number of threads for running Snippy *(default = 4)* |
 | **reference** | Reference genome in FASTA or GENBANK format (can be multi-contig) |
 | **gbff** | Path to GBFF annotation file of the reference genome |
-| **sequence_type** | Type of sequence file for Snippy:<br>• `fastq` (paired-end)<br>• `fastq-single` (single-end)<br>• `fasta` *(default = fastq)* |
+| **sequence_type** | Type of sequence file for Snippy:<br>• `fastq` (paired-end) *(default = fastq)* <br>• `fastq-single` (single-end)<br>• `fasta`  |
 | **sequence_file_location** | Location of sequence files for VCF analysis |
 | **dates_file** | TSV file with sample name (column 1) and decimal sampling date (column 2) |
 | **unknown_month** | Use default for unknown sampling month *(default = True)* |
