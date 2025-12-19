@@ -4,6 +4,13 @@
 
 ---
 
+##Installation of the software
+
+```bash
+bash install_popkaryote.sh
+
+```
+
 ## Usage Parameters
 
 | Parameter | Description |
