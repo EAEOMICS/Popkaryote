@@ -4,7 +4,7 @@
 
 ---
 
-##Installation of the software
+## Installation of the software
 
 ```bash
 bash install_popkaryote.sh
